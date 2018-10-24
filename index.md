@@ -16,4 +16,4 @@ Not all cubic Bézier curves are suitable as timing functions as not all are mat
 
 Cubic Bézier curves with the P1 or P2 ordinate outside the [0, 1] range may generate bouncing effects.
 
-![cubic bezier]('clock/cubic-bezier.png')
+![cubic bezier](clock/cubic-bezier.png)

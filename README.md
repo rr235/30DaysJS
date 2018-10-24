@@ -1,3 +1,4 @@
+> Go to https://rr235.github.io/30js/ for all pages.
 
 # 1. [Drum Kit](drumKit/index.html)
 

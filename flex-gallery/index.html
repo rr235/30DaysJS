@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Dev Flex</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+</head>
+
+<body>
+  <div class="panels">
+    <div class="panel panel1">
+      <p>javascript</p>
+      <p><i class="devicon-javascript-plain"></i></p>
+      <p>dynamic, prototype-based</p>
+    </div>
+    <div class="panel panel2">
+      <p>Node & React</p>
+      <p><i class="devicon-nodejs-plain"></i><i class="devicon-react-plain"></i></p>
+      <p>high performance web pages</p>
+    </div>
+    <div class="panel panel3">
+      <p>Amazon Web Services</p>
+      <p><i class="devicon-amazonwebservices-plain"></i></p>
+      <p>IaaS, PaaS</p>
+    </div>
+    <div class="panel panel4">
+      <p>docker</p>
+      <p><i class="devicon-docker-plain"></i></p>
+      <p>containerization</p>
+    </div>
+    <div class="panel panel5">
+      <p>python</p>
+      <p><i class="devicon-python-plain"></i></p>
+      <p>interpreted high-level programming</p>
+    </div>
+  </div>
+  <link rel="stylesheet" href="./img-bg.css">
+
+  <script>
+    const panels = document.querySelectorAll('.panel');
+
+    function toggleOpen() {
+      this.classList.toggle('open');
+    }
+
+    function toggleActive(e) {
+      if(e.propertyName.includes('flex')) {
+        this.classList.toggle('open-active');
+      }
+    }
+
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+  </script>
+
+
+
+</body>
+
+</html>

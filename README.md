@@ -59,7 +59,7 @@
     * `array`
     The first time the callback is called, `accumulator` and `currentValue` can be one of two values. If `initialValue` is provided in the call to `reduce()`, then accumulator will be equal to `initialValue`, and `currentValue` will be equal to the first value in the array. If no `initialValue` is provided, then `accumulator` will be equal to the first value in the array, and `currentValue` will be equal to the second.
 
-# 4. [flex-gallery](https://rr235.github.io/30js/flex-gallery/index.html)
+# 5. [flex-gallery](https://rr235.github.io/30js/flex-gallery/index.html)
 
 * [`display`](https://developer.mozilla.org/en-US/docs/Web/CSS/display) - The display CSS property defines the display type of an element, which consists of the two basic qualities of how an element generates boxes — `the outer display type` defining how the box participates in `flow layout`, and the `inner display type` defining how the children of the box are laid out.
     ```css

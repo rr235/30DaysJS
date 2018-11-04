@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Stack Overflow Popular Tags</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <h1>Most popular Stock Overflow tags</h1>
+  <form class="search-form">
+    <input type="text" class="search" placeholder="Tag">
+    <ul class="suggestions">
+      <li>Filter for Tag Names</li>
+    </ul>
+  </form>
+  <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+</body>
+
+<script>
+  const tags = [];
+  const searchInput = document.querySelector('.search');
+  const suggestions = document.querySelector('.suggestions');
+
+  searchInput.addEventListener('change', showTags);
+  searchInput.addEventListener('keyup', showTags);
+
+  function getData(pageCount, limit) {
+    const url = `https://api.stackexchange.com/2.2/tags?order=desc&sort=popular&site=stackoverflow&pagesize=100&page=${pageCount}`;
+    fetch(url)
+      .then(result => result.json())
+      .then(data => {
+        tags.push(...data.items);
+        if (data.has_more && ++pageCount * 100 <= limit) {
+          getData(pageCount, limit);
+        }
+      });
+  }
+
+  function getTags(text) {
+    return tags.filter(data => {
+      // if (!text) return false;
+      return data.name.match(new RegExp(text, 'gi'));
+    });
+  }
+
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+  function fixKnownClassNames(lang) {
+    switch (lang.toLowerCase()) {
+      case 'c++':
+        return 'cplusplus';
+      case 'c#':
+        return 'csharp';
+      case 'ios':
+      case 'iphone':
+      case 'macos':
+        return 'apple';
+      case '.net':
+      case 'asp.net':
+      case 'asp.net-mvc':
+        return 'dot-net';
+      case 'ruby-on-rails':
+      case 'ruby-on-rails-3':
+        return 'rails';
+      case 'node.js':
+        return 'nodejs';
+      case 'python-3.x':
+      case 'python-2.7':
+        return 'python';
+      case 'windows':
+      case 'winforms':
+        return 'windows8';
+      case 'reactjs':
+        return 'react';
+      case 'twitter-bootstrap':
+        return 'twitter';
+      case 'visual-studio':
+        return 'visualstudio';
+      case 'amazon-web-services':
+        return 'amazonwebservices';
+      case 'google-maps':
+        return 'google';
+      case 'google-chrome':
+        return 'chrome';
+      default:
+        return lang;
+    }
+  }
+
+  function showTags() {
+    let html;
+    const filteredTags = getTags(this.value);
+    if (filteredTags.length) {
+      html = filteredTags.map(data => {
+        const regex = new RegExp(this.value, 'gi');
+        const tagName = data.name.replace(regex, `<span class="hl">${this.value}</span>`);
+        return `
+        <li>
+          <i class="devicon-devicon-plain devicon-${fixKnownClassNames(data.name)}-plain colored"></i>
+          <span class="link">
+            <a href="https://stackoverflow.com/tags/${data.name}"><span class="name">${tagName}</span></a>
+          </span>
+          <span class="population">${numberWithCommas(data.count)}</span>
+        </li>
+      `
+      }).join('');
+    } else {
+      html = `<li>Filter for Tag Names</li>`;
+    }
+    suggestions.innerHTML = html;
+  }
+
+  getData(1, 1000);
+</script>
+
+</html>

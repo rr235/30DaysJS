@@ -59,7 +59,7 @@
     * `array`
     The first time the callback is called, `accumulator` and `currentValue` can be one of two values. If `initialValue` is provided in the call to `reduce()`, then accumulator will be equal to `initialValue`, and `currentValue` will be equal to the first value in the array. If no `initialValue` is provided, then `accumulator` will be equal to the first value in the array, and `currentValue` will be equal to the second.
 
-# 5. [flex-gallery](https://rr235.github.io/30js/flex-gallery/index.html)
+# 5. [Flex Gallery](https://rr235.github.io/30js/flex-gallery/index.html)
 
 * [`display`](https://developer.mozilla.org/en-US/docs/Web/CSS/display) - The display CSS property defines the display type of an element, which consists of the two basic qualities of how an element generates boxes — `the outer display type` defining how the box participates in `flow layout`, and the `inner display type` defining how the children of the box are laid out.
     ```css
@@ -161,3 +161,4 @@
     > Note that the values `row` and `row-reverse` are affected by the directionality of the flex container. iI the `dir` attribute is `rtl`, `row` represents the axis oriented from the right to the left, and `row-reverse` from the left to the right.
 
 * e.propertyName flex and flex-grow - Safari transitionend `event.propertyName === flex`. Chrome + FF transitionend `event.propertyName === flex-grow`
+

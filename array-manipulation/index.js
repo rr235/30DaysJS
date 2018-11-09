@@ -7,6 +7,7 @@ const inventors = [
   { first: "Nicolaus", last: "Copernicus", year: 1473, passed: 1543 },
   { first: "Max", last: "Planck", year: 1858, passed: 1947 },
   { first: "Katherine", last: "Blodgett", year: 1898, passed: 1979 },
+  { first: "Albert", last: "Hofmann", year: 1906, passed: 2008 },
   { first: "Ada", last: "Lovelace", year: 1815, passed: 1852 },
   { first: "Sarah E.", last: "Goode", year: 1855, passed: 1905 },
   { first: "Lise", last: "Meitner", year: 1878, passed: 1968 },
@@ -109,3 +110,24 @@ const transportationCount = transportation.reduce((total, item) => {
   return total;
 }, {});
 console.table(transportationCount);
+
+// check if at least an inventor lived more than 80 years.
+inventors.some(inv => inv.passed - inv.year > 80); // true
+
+// check if all inventors lived more than 50 years.
+inventors.every(inv => inv.passed - inv.year > 50); // false
+
+// to return only one result
+inventors.find(inv => inv.first === "Albert"); // {first: "Albert", last: "Einstein", year: 1879, passed: 1955}
+
+// to delete an item from array
+const index = inventors.findIndex(
+  inv => inv.first === "Albert" && inv.last === "Hofmann"
+);
+inventors.splice(index, 1);
+
+// to create a new array after removing one item
+const newInventorsList = [
+  ...inventors.slice(0, index),
+  ...inventors.slice(index + 1)
+];

@@ -52,11 +52,37 @@ Cubic Bézier curves with the P1 or P2 ordinate outside the [0, 1] range may gen
   B) You're not returning a value from the callback.
 
 - [`Array.prototype.reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce) - `reduce()` executes the callback function once for each element present in the array, excluding holes in the array, receiving four arguments:
+
   - `accumulator`
   - `currentValue`
   - `currentIndex`
   - `array`
     The first time the callback is called, `accumulator` and `currentValue` can be one of two values. If `initialValue` is provided in the call to `reduce()`, then accumulator will be equal to `initialValue`, and `currentValue` will be equal to the first value in the array. If no `initialValue` is provided, then `accumulator` will be equal to the first value in the array, and `currentValue` will be equal to the second.
+
+- [Array.prototype.some()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some) - The `some()` method tests whether at least one element in the array passes the test implemented by the provided function. This method returns `false` for any condition put on an empty array.
+
+- [Array.prototype.every()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every) - The `every()` method tests whether all elements in the array pass the test implemented by the provided function. This method returns `true` for any condition put on an empty array.
+
+- [Array.prototype.find()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find) - The `find()` method returns the value of the first element in the array that satisfies the provided testing function. Otherwise `undefined` is returned.
+
+- [Array.prototype.findIndex()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex) - The `findIndex()` method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns `-1`, indicating no element passed the test.
+
+- [Array.prototype.splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) - The `splice()` method changes the contents of an array by removing existing elements and/or adding new elements.
+
+  > `array.splice(start[, deleteCount[, item1[, item2[, ...]]]])`
+
+  - `start` - Index at which to start changing the array (with origin 0). If greater than the length of the array, actual starting index will be set to the length of the array. If negative, will begin that many elements from the end of the array (with origin -1) and will be set to 0 if absolute value is greater than the length of the array.
+  - `deleteCount (Optional)` - An integer indicating the number of old array elements to remove.
+
+  If `deleteCount` is omitted, or if its value is larger than array.length - start (that is, if it is greater than the number of elements left in the array, starting at start), then all of the elements from start through the end of the array will be deleted.
+
+  If `deleteCount` is 0 or negative, no elements are removed. In this case, you should specify at least one new element (see below).
+
+  - `item1, item2, ... (Optional)` - The elements to add to the array, beginning at the start index. If you don't specify any elements, splice() will only remove elements from the array.
+
+- [Array.prototype.slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) - The `slice()` method returns a shallow copy of a portion of an array into a new array object selected from begin to end (end not included). The original array will not be modified.
+
+  > arr.slice([begin[, end]])
 
 # 5. [Flex Gallery](flex-gallery/index.html)
 
